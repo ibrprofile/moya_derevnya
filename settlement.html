@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Населенный пункт - Малочисленные населенные пункты РФ</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY&lang=ru_RU" type="text/javascript"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Информационный сайт</a>
+                <nav class="header-nav">
+                    <a href="/" class="nav-link">Главная</a>
+                    <a href="/catalog.html" class="nav-link">Каталог</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="/" class="mobile-menu-link">Главная</a>
+            <a href="/catalog.html" class="mobile-menu-link">Каталог</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Хлебные крошки -->
+        <section class="breadcrumb-section" id="breadcrumbSection">
+            <div class="container">
+                <nav class="breadcrumb" id="breadcrumb" aria-label="Навигация"></nav>
+            </div>
+        </section>
+
+        <section class="settlement-header">
+            <div class="container">
+                <div class="settlement-title-row">
+                    <h1 id="settlementName" class="settlement-name">Загрузка...</h1>
+                    <span id="settlementStatusBadge" class="settlement-status">Загрузка...</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="settlement-info">
+            <div class="container">
+                <div class="settlement-grid">
+                    <div class="settlement-main">
+                        <!-- Основная информация -->
+                        <div class="info-card">
+                            <div class="info-item">
+                                <i class="fas fa-info-circle info-icon"></i>
+                                <div class="info-content">
+                                    <h3>Статус</h3>
+                                    <p id="settlementStatus">Загрузка...</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar-alt info-icon"></i>
+                                <div class="info-content">
+                                    <h3>Год основания</h3>
+                                    <p id="settlementYear">Загрузка...</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-folder-open info-icon"></i>
+                                <div class="info-content">
+                                    <h3>Раздел</h3>
+                                    <p id="settlementCategory">Загрузка...</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Кнопки рубрик -->
+                        <div id="rubricsButtons" class="action-buttons">
+                            <!-- Кнопки рубрик добавляются через JS -->
+                        </div>
+
+                        <!-- Галерея -->
+                        <div class="gallery-section" id="galleryWrapper">
+                            <h2 class="section-title">Галерея</h2>
+                            <div id="galleryGrid" class="gallery-grid"></div>
+                        </div>
+
+                        <!-- Динамика населения -->
+                        <div class="population-section" id="populationWrapper">
+                            <h2 class="section-title">Динамика населения</h2>
+                            <div id="populationChart" class="population-chart"></div>
+                        </div>
+                    </div>
+
+                    <div class="settlement-sidebar">
+                        <div class="map-card">
+                            <div id="yandexMap" style="width: 100%; height: 400px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно для рубрик -->
+    <div id="rubricModal" class="modal">
+        <div class="modal-content modal-content-lg">
+            <span class="modal-close" onclick="closeModal('rubricModal')">&times;</span>
+            <h2 class="modal-title" id="rubricModalTitle">Информация</h2>
+            <div id="rubricModalContent" class="modal-body rubric-content"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Малочисленные населенные пункты РФ. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="/js/settlement.js"></script>
+</body>
+</html>

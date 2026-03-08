@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Малочисленные населенные пункты РФ</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Информационный сайт</a>
+                <nav class="header-nav">
+                    <a href="/catalog.html" class="nav-link">Каталог</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="/catalog.html" class="mobile-menu-link">Каталог</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 class="hero-title">Вот моя деревня...</h1>
+                        <p class="hero-description">
+                            Забытые страницы истории малых населенных пунктов России
+                        </p>
+                        <a href="/catalog.html" class="btn btn-primary btn-lg">Открыть каталог</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="/uploads/089babdb80f6785c9866aaa8c2734e66.png" alt="Карта России">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <h2 class="section-title">О проекте</h2>
+                <div class="about-content">
+                    <p class="about-text">
+                        Наш сайт представляет собой уникальную платформу для изучения и сохранения истории малочисленных населенных пунктов России. Мы стремимся собрать и представить архивные документы, карты и исторические данные о каждом населенном пункте, чтобы пользователи могли глубже понять их культурное наследие и значимость.
+                    </p>
+                    <p class="about-text">
+                        Наша цель - создать обширный ресурс, который будет полезен как исследователям, так и простым пользователям, интересующимся историей своей малой родины.
+                    </p>
+                    <div class="about-buttons">
+                        <a href="/catalog.html" class="btn btn-primary">Перейти в каталог</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Возможности</h2>
+                <div class="features-grid">
+                    <div class="feature-card feature-card-gray">
+                        <i class="fas fa-archive feature-icon"></i>
+                        <h3 class="feature-title">Архивные документы</h3>
+                        <p class="feature-description">Доступ к уникальным архивным материалам, связанным с историей малочисленных населенных пунктов.</p>
+                    </div>
+                    <div class="feature-card feature-card-red">
+                        <i class="fas fa-database feature-icon"></i>
+                        <h3 class="feature-title">Исторические данные</h3>
+                        <p class="feature-description">Подробная информация о времени возникновения населенных пунктов, их топонимах и прочих данных.</p>
+                    </div>
+                    <div class="feature-card feature-card-blue">
+                        <i class="fas fa-map-marked-alt feature-icon"></i>
+                        <h3 class="feature-title">Карты</h3>
+                        <p class="feature-description">Карты, показывающие местоположение населенных пунктов и изменения в их границах.</p>
+                    </div>
+                    <div class="feature-card feature-card-green">
+                        <i class="fas fa-chart-line feature-icon"></i>
+                        <h3 class="feature-title">Динамика населения</h3>
+                        <p class="feature-description">Статистика по численности населения на разных этапах истории.</p>
+                    </div>
+                    <div class="feature-card feature-card-yellow">
+                        <i class="fas fa-landmark feature-icon"></i>
+                        <h3 class="feature-title">Достопримечательности</h3>
+                        <p class="feature-description">Описания исторических и культурных объектов, находящихся в населенных пунктах.</p>
+                    </div>
+                    <div class="feature-card feature-card-orange">
+                        <i class="fas fa-search feature-icon"></i>
+                        <h3 class="feature-title">Умный поиск</h3>
+                        <p class="feature-description">Удобный поиск по разделам и населённым пунктам с мгновенными результатами.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <div class="container">
+                <h2 class="section-title">Написать администрации</h2>
+                <div class="contact-content">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="contactName">Как к вам обращаться?</label>
+                            <input type="text" id="contactName" name="name" placeholder="Иван Иванович" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactEmail">Ваша почта</label>
+                            <input type="email" id="contactEmail" name="email" placeholder="ivan@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactSubject">Тема</label>
+                            <input type="text" id="contactSubject" name="subject" placeholder="Тема обращения" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contactMessage">Сообщение</label>
+                            <textarea id="contactMessage" name="message" rows="5" placeholder="Текст сообщения..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+                    <div class="contact-illustration">
+                        <i class="fas fa-paper-plane contact-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Малочисленные населенные пункты РФ. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html>

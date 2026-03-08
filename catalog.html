@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог - Малочисленные населенные пункты РФ</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="/" class="logo">Информационный сайт</a>
+                <nav class="header-nav">
+                    <a href="/" class="nav-link">Главная</a>
+                    <a href="/catalog.html" class="nav-link nav-link-active">Каталог</a>
+                </nav>
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Открыть меню">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="/" class="mobile-menu-link">Главная</a>
+            <a href="/catalog.html" class="mobile-menu-link">Каталог</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="catalog-hero">
+            <div class="container">
+                <h1 class="catalog-title">Каталог</h1>
+                <p class="catalog-subtitle">Навигация по разделам и населённым пунктам</p>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <div class="container">
+                <h3 class="search-title">Умный поиск</h3>
+                <div class="search-box">
+                    <i class="fas fa-search search-icon-input"></i>
+                    <input type="text" id="searchInput" placeholder="Поиск по разделам и населённым пунктам..." class="search-input search-input-icon">
+                    <div id="searchResults" class="search-results"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Хлебные крошки -->
+        <section class="breadcrumb-section" id="breadcrumbSection" style="display:none;">
+            <div class="container">
+                <nav class="breadcrumb" id="breadcrumb" aria-label="Навигация по разделам"></nav>
+            </div>
+        </section>
+
+        <!-- Подразделы -->
+        <section class="regions-section" id="categoriesSection">
+            <div class="container">
+                <h2 class="section-title" id="categoriesTitle">Разделы</h2>
+                <div id="categoriesGrid" class="regions-grid">
+                    <!-- Загружаются через JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Населённые пункты раздела -->
+        <section class="regions-section" id="settlementsSection" style="display:none;">
+            <div class="container">
+                <h2 class="section-title">Населённые пункты</h2>
+                <div id="settlementsGrid" class="settlements-list">
+                    <!-- Загружаются через JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Малочисленные населенные пункты РФ. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script src="/js/catalog.js"></script>
+</body>
+</html>
