@@ -167,6 +167,14 @@ function renderGallery(photos) {
     });
 }
 
+function formatPopulation(n) {
+    n = parseInt(n, 10);
+    if (isNaN(n)) return n;
+    if (n >= 1000000) return (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+    if (n >= 1000) return (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+    return n;
+}
+
 function renderPopulation(data) {
     var wrapper = document.getElementById('populationWrapper');
     var chart = document.getElementById('populationChart');
@@ -179,15 +187,17 @@ function renderPopulation(data) {
     wrapper.style.display = 'block';
     var maxPop = 0;
     data.forEach(function (d) {
-        if (d.population > maxPop) maxPop = d.population;
+        var v = parseInt(d.population, 10);
+        if (v > maxPop) maxPop = v;
     });
 
     var barsHtml = '';
     data.forEach(function (item, index) {
-        var height = (item.population / maxPop) * 100;
+        var val = parseInt(item.population, 10);
+        var height = Math.max((val / maxPop) * 100, 4);
         barsHtml +=
-            '<div class="chart-bar" style="height:' + height + '%; animation-delay:' + (index * 0.08) + 's;">' +
-                '<div class="chart-bar-label">' + item.population + '</div>' +
+            '<div class="chart-bar" style="height:' + height + '%; animation-delay:' + (index * 0.08) + 's;" title="' + item.year + ': ' + val.toLocaleString('ru-RU') + '">' +
+                '<div class="chart-bar-label">' + formatPopulation(val) + '</div>' +
                 '<div class="chart-bar-year">' + item.year + '</div>' +
             '</div>';
     });
