@@ -39,6 +39,9 @@ function renderSettlement() {
     var gallery = settlementData.gallery;
     var population = settlementData.population;
 
+    // SEO: Обновляем Meta Tags динамически
+    updateSEOMetaTags(s, breadcrumb);
+
     // Заголовок
     document.title = s.name + ' - Малочисленные населенные пункты РФ';
     document.getElementById('settlementName').textContent = s.name;
@@ -88,6 +91,78 @@ function renderSettlement() {
     } else {
         document.getElementById('yandexMap').innerHTML = '<p style="padding:20px; text-align:center; color:#6b7280;">Координаты не указаны</p>';
     }
+}
+
+// SEO функция для обновления метатегов
+function updateSEOMetaTags(settlement, breadcrumb) {
+    var settlementName = settlement.name || 'Населённый пункт';
+    var status = settlement.status === 'active' ? 'действующий' : 'недействующий';
+    var yearInfo = settlement.year_founded ? ' (основан в ' + settlement.year_founded + ' г.)' : '';
+    var breadcrumbPath = breadcrumb && breadcrumb.length > 0 ? breadcrumb.map(function(c) { return c.name; }).join(', ') : '';
+    
+    // Meta Description
+    var description = settlementName + ' - ' + status + ' населённый пункт России' + yearInfo + '. Информация, история, карта, архивные данные и фотографии.';
+    var metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) metaDescription.setAttribute('content', description);
+    
+    // Meta Keywords
+    var keywords = settlementName + ', ' + settlementName.toLowerCase() + ', население, деревня, село, история, ' + status + ', архив, карта';
+    if (breadcrumbPath) keywords += ', ' + breadcrumbPath;
+    var metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+        metaKeywords = document.createElement('meta');
+        metaKeywords.setAttribute('name', 'keywords');
+        document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', keywords);
+    
+    // Canonical URL
+    var canonicalUrl = 'https://votmoyaderevnya.ru/settlement.html?id=' + settlement.id;
+    var canonicalTag = document.getElementById('canonicalTag');
+    canonicalTag.setAttribute('href', canonicalUrl);
+    
+    // hreflang
+    var hreflangTag = document.getElementById('hreflangTag');
+    hreflangTag.setAttribute('href', canonicalUrl);
+    
+    // Open Graph Tags
+    document.getElementById('ogUrl').setAttribute('content', canonicalUrl);
+    document.getElementById('ogTitle').setAttribute('content', settlementName + ' — информация о населённом пункте');
+    document.getElementById('ogDescription').setAttribute('content', description);
+    
+    // Twitter Tags
+    document.getElementById('twitterTitle').setAttribute('content', settlementName);
+    document.getElementById('twitterDescription').setAttribute('content', description.substring(0, 160));
+    
+    // Schema.org structured data
+    var schemaData = {
+        "@context": "https://schema.org",
+        "@type": "Place",
+        "name": settlementName,
+        "description": description,
+        "url": canonicalUrl,
+        "status": status,
+        "inCountry": "RU"
+    };
+    
+    if (settlement.latitude && settlement.longitude) {
+        schemaData.geo = {
+            "@type": "GeoCoordinates",
+            "latitude": settlement.latitude,
+            "longitude": settlement.longitude
+        };
+    }
+    
+    if (breadcrumb && breadcrumb.length > 0) {
+        schemaData.address = {
+            "@type": "PostalAddress",
+            "addressCountry": "RU",
+            "areaServed": breadcrumb.map(function(b) { return b.name; })
+        };
+    }
+    
+    var schemaScript = document.getElementById('settlementSchema');
+    schemaScript.textContent = JSON.stringify(schemaData, null, 2);
 }
 
 function renderBreadcrumb(items, settlementName) {
