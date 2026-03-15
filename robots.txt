@@ -1,0 +1,38 @@
+# Robots.txt for Вот моя деревня
+# Разрешаем полную индексацию для поисковиков
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /catalog.html
+Allow: /settlement.html
+Allow: /css/
+Allow: /js/
+Allow: /imgs/
+Allow: /api/
+Disallow: /admin/
+Disallow: /config/
+Disallow: /database/
+Disallow: /uploads/
+
+# Яндекс
+User-agent: Yandexbot
+Allow: /
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://votmoyaderevnya.ru/sitemap.xml
+Sitemap: https://votmoyaderevnya.ru/sitemap-settlements.xml
+
+# Crawl delay
+Crawl-delay: 1
+
+# Request rate - requests per 10 seconds
+Request-rate: 100/10
